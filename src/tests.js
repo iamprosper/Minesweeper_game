@@ -1,10 +1,7 @@
+//Primitives
 var a;
 var b;
 var c;
-;
-// interface UserWithPermissions extends BasicUser{
-//     permissions: string[];
-// }
 var user = {
     name: "Lade",
     surname: "Cruz",
@@ -16,7 +13,15 @@ var user2 = {
     surname: "Daniel",
     age: 24,
     isAdmin: true,
-    permissions: ['manager', 'operator', 'instructor']
+    permissions: ['admin', 'user']
+};
+var user3 = {
+    name: "James",
+    surname: "Christopher",
+    age: 15,
+    isAdmin: true,
+    account: 125,
+    permissions: ['admin', 'user']
 };
 var userArray = [user, user, user];
 function getFirst(arr) {
@@ -26,3 +31,11 @@ function getFirst(arr) {
 getFirst(userArray);
 var mul = function (a, b) { return a * b; };
 var add = function (a, b) { return a + b; };
+;
+//Unknown, void, never
+var logFunction = function (data) {
+    var data2 = data;
+    console.log(data);
+    console.log(data2);
+    return undefined;
+};

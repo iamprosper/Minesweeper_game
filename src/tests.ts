@@ -4,21 +4,24 @@ let a: number;
 let b: boolean;
 let c: string;
 
+type Permissions_enum = 'admin' | 'user' | 'manager';
+type TuplePermissions = [Permissions_enum, Permissions_enum];
+
 //Customs objects
 
-type BasicUser<A = boolean> = {
+type BasicUser<A = boolean, P = TuplePermissions> = {
     name: string;
     surname: string;
     age: number;
     isAdmin: A;
-    permissions?: string[];
+    permissions?: P;
 };
 
 type AdvancedUser = {
     account: number;
 }
 
-type FullUser<A = boolean> = BasicUser<A> & AdvancedUser;
+type FullUser<A = boolean, P = TuplePermissions> = BasicUser<A, P> & AdvancedUser;
 
     
 const user: BasicUser = {
@@ -33,7 +36,7 @@ const user2: BasicUser = {
     surname: "Daniel",
     age: 24,
     isAdmin: true,
-    permissions: ['manager', 'operator', 'instructor'],
+    permissions: ['admin', 'user'],
 };
 
 const user3: FullUser = {
@@ -41,7 +44,8 @@ const user3: FullUser = {
     surname: "Christopher",
     age: 15,
     isAdmin: true,
-    account: 125
+    account: 125,
+    permissions: ['admin', 'user'],
 }
 
 const userArray: BasicUser[] = [user, user, user];
@@ -70,5 +74,14 @@ interface BUser<A= boolean> {
 //Interfaces unions
 interface BUser{
     account: number;
+}
+
+//Unknown, void, never
+
+const logFunction = (data: unknown): void => {
+    const data2: unknown = data;
+    console.log(data);
+    console.log(data2);
+    return undefined;
 }
 
