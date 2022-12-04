@@ -36,7 +36,13 @@ const user2: BasicUser = {
     permissions: ['manager', 'operator', 'instructor'],
 };
 
+const userArray: BasicUser[] = [user, user, user];
 
+function getFirst<T>(arr: T[]): T{
+    return arr[0];
+};
+
+getFirst<BasicUser>(userArray);
 
 type MathFunc = (a: number, b: number) => number;
 
