@@ -1,26 +1,26 @@
+//Primitives
+
 let a: number;
 let b: boolean;
 let c: string;
 
-// type User = {
-//     name: string;
-//     surname: string;
-//     age: number;
-//     isAdmin: boolean;
-// };
+//Customs objects
 
-interface BasicUser {
+type BasicUser<A = boolean> = {
     name: string;
     surname: string;
     age: number;
-    isAdmin: boolean;
-    permissions?: string[],
+    isAdmin: A;
+    permissions?: string[];
 };
 
-// interface UserWithPermissions extends BasicUser{
-//     permissions: string[];
-// }
+type AdvancedUser = {
+    account: number;
+}
 
+type FullUser<A = boolean> = BasicUser<A> & AdvancedUser;
+
+    
 const user: BasicUser = {
     name: "Lade",
     surname: "Cruz",
@@ -36,6 +36,14 @@ const user2: BasicUser = {
     permissions: ['manager', 'operator', 'instructor'],
 };
 
+const user3: FullUser = {
+    name: "James",
+    surname: "Christopher",
+    age: 15,
+    isAdmin: true,
+    account: 125
+}
+
 const userArray: BasicUser[] = [user, user, user];
 
 function getFirst<T>(arr: T[]): T{
@@ -49,4 +57,18 @@ type MathFunc = (a: number, b: number) => number;
 const mul: MathFunc = (a, b) => a * b;
 
 const add: MathFunc = (a, b) => a + b;
+
+//Interfaces
+interface BUser<A= boolean> {
+    name: string;
+    surname: string;
+    age: number;
+    isAdmin: A;
+    permissions?: string[],
+};
+
+//Interfaces unions
+interface BUser{
+    account: number;
+}
 
