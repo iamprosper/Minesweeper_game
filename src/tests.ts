@@ -85,3 +85,37 @@ const logFunction = (data: unknown): void => {
     return undefined;
 }
 
+//Utilities props
+
+type BasicUserReadOnly = Readonly<BasicUser>;
+type BasicUserRequired = Required<BasicUser>;
+type BasicUserReadOnlyRequired = Readonly<Required<BasicUser>>;
+type BasicUserWithoutPermission = Omit<BasicUser, 'permissions'>;
+type PermissionsWithoutAdmin = Exclude<Permissions_enum,'admin'>;
+
+//Record type
+interface DepartmentsForPermission{
+    depName: string;
+    lvl: number;
+};
+
+//We can create a object combined with two objects types here enumeration and department
+
+const DepsForPerms: Record<Permissions_enum, DepartmentsForPermission> ={
+    admin: {
+        depName: 'security',
+        lvl: 10,
+    },
+    user: {
+        depName: 'sales',
+        lvl: 5,
+    },
+    manager: {
+        depName: 'sales',
+        lvl: 10
+    }
+};
+
+//Return type
+type BasicFunction = () => FullUser[];
+type getReturnType = ReturnType<BasicFunction>;
