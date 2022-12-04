@@ -1,0 +1,27 @@
+{
+  "name": "minesweeper_game",
+  "version": "1.0.0",
+  "description": "Minesweeper",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamprosper/Minesweeper_game.git"
+  },
+  "keywords": [
+    "React",
+    "Redux",
+    "Minesweeper"
+  ],
+  "author": "Prosper SAKIYE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamprosper/Minesweeper_game/issues"
+  },
+  "homepage": "https://github.com/iamprosper/Minesweeper_game#readme",
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  }
+}
